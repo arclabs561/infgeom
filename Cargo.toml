@@ -7,6 +7,7 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/arclabs561/infgeom"
 homepage = "https://github.com/arclabs561/infgeom"
 documentation = "https://docs.rs/infgeom"
+readme = "README.md"
 keywords = ["information-geometry", "fisher-rao", "divergence", "riemannian-geometry"]
 categories = ["science", "mathematics"]
 

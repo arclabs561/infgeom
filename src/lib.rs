@@ -8,6 +8,21 @@
 //!
 //! Reference orientation:
 //! - Frank Nielsen’s divergence/IG portal: https://franknielsen.github.io/IG/index.html
+//!
+//! ## Quick example
+//!
+//! ```rust
+//! use infgeom::{rao_distance_categorical, hellinger};
+//!
+//! let p = [0.7, 0.2, 0.1];
+//! let q = [0.1, 0.2, 0.7];
+//!
+//! let rao = rao_distance_categorical(&p, &q, 1e-12).unwrap();
+//! let hel = hellinger(&p, &q, 1e-12).unwrap();
+//!
+//! assert!(rao >= 0.0);
+//! assert!((0.0..=1.0).contains(&hel));
+//! ```
 
 #![forbid(unsafe_code)]
 
