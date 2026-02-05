@@ -126,6 +126,19 @@ mod tests {
             prop_assert!(h >= -1e-12);
             prop_assert!(h <= 1.0 + 1e-12);
         }
+
+        #[test]
+        fn rao_matches_bhattacharyya_formula(p in simplex_vec(10), q in simplex_vec(10)) {
+            let tol = 1e-9;
+            let rao = rao_distance_categorical(&p, &q, tol).unwrap();
+            let mut bc = logp::bhattacharyya_coeff(&p, &q, tol).unwrap();
+            bc = bc.clamp(0.0, 1.0);
+            if (1.0 - bc).abs() <= 10.0 * tol {
+                bc = 1.0;
+            }
+            let expected = 2.0 * bc.acos();
+            prop_assert!((rao - expected).abs() < 1e-12, "rao={rao} expected={expected} bc={bc}");
+        }
     }
 }
 
