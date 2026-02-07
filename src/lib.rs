@@ -11,7 +11,7 @@
 //! geometry on top.
 //!
 //! Related:
-//! - `unseen` estimates properties from samples (unseen regime) when you don’t have an explicit
+//! - `fingerprints` estimates properties from samples (unseen regime) when you don’t have an explicit
 //!   distribution yet.
 //!
 //! Reference orientation:
